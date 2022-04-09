@@ -85,7 +85,7 @@ function agregarNumeros(numeros) {
   // Tu código:
   sum = 0
   for (var i = 0; i < numeros.length; i++){
-    sum += array[i]
+    sum += numeros[i]
   }
   return sum
 }
@@ -152,7 +152,10 @@ function diaDeLaSemana(numeroDeDia) {
   //Realiza una función que dado el número del día de la semana, retorne: Es fin de semana
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
   //Escribe tu código aquí   
-  if (numeroDeDia < 2){
+  if (numeroDeDia > 1 && numeroDeDia < 7){
+    return 'Es dia Laboral'
+  }
+  else if (numeroDeDia === 1 || numeroDeDia === 7){
     return 'Es fin de semana'
   }
   
@@ -174,9 +177,21 @@ function empiezaConNueve(n) {
 function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
-  //Escribe tu código aquí  
-  
-} 
+  //Escribe tu código aquí
+  var i = 0
+  var isSame = false
+  while(i < arreglo.length-1){
+    if (arreglo[i] === arreglo[i+1]){
+      isSame = true
+    }
+    else {
+      isSame = false
+    }
+    i++
+    
+  }
+  return isSame
+}
 
 
 function mesesDelAño(array) {
@@ -184,6 +199,22 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+  var nuevoArray = []
+  for (var i = 0; i < array.length; i++){
+    if (array[i] === 'Enero'){
+      nuevoArray.push(array[i])
+    }
+    else if (array[i] === 'Marzo'){
+      nuevoArray.push(array[i])
+    }
+    else if (array[i] === 'Noviembre'){
+      nuevoArray.push(array[i])
+    }
+  }
+  if (nuevoArray.length !== 3){
+    return 'No se encontraron los meses pedidos'
+  }
+  return nuevoArray
 }
 
 
@@ -210,16 +241,15 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
-  nuevoArray = []
-  i = 0
-  while (i < 10){
-    if (i === numero){
+  var nuevoArray = []
+  for (var i = 0; i < 10; i++){
+    numero++
+    if (numero === i) {
       break;
     }
-    numero += 2
     nuevoArray.push(numero)
   }
-  if (i === numero){
+  if (i < 10) {
     return 'Se interrumpió la ejecución'
   }
   return nuevoArray
@@ -233,17 +263,15 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
-  nuevoArray = []
-  i = 0
-  while (i < 10){
-    numero+=2
-    nuevoArray.push(numero)
-    if (i === 5){
+  var nuevoArray = [];
+  for(var i = 0; i < 10; i++) {
+    if(i === 5) {
       continue;
     }
-    i++
+    numero += 2
+    nuevoArray.push(suma)
   }
-  return nuevoArray
+  return nuevoArray;
 }
 
 
